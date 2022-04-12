@@ -1,4 +1,4 @@
-name: attendance-system
+name: attendancy
 channels:
   - conda-forge
 dependencies:

@@ -26,7 +26,7 @@ def title_bar():
     # os.system('cls')  # for windows
 
     # title of the program
-    title = pyfiglet.figlet_format("Attendance System")
+    title = pyfiglet.figlet_format("Attendancy")
     print(title)
 
 

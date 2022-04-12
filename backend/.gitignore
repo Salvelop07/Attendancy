@@ -210,7 +210,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 
-# attendance-system
+# attendancy
 .idea/
 src/__pycache__/
 src/libs/__pycache__/

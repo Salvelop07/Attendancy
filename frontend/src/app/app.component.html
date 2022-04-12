@@ -1,18 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Attendance System</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#">Attendancy</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngIf="loggedIn()">
-        <a class="nav-link" routerLink="/video_feeds" routerLinkActive="active">Video Feeds</a>
+        <a class="nav-link" routerLink="/video_feeds" routerLinkActive="active"
+          >Video Feeds</a
+        >
       </li>
       <li class="nav-item" *ngIf="loggedIn()">
-        <a class="nav-link" routerLink="/students" routerLinkActive="active">Students</a>
+        <a class="nav-link" routerLink="/students" routerLinkActive="active"
+          >Students</a
+        >
       </li>
       <li class="nav-item" *ngIf="loggedIn()">
-        <a class="nav-link" routerLink="/attendance" routerLinkActive="active">Check Attendance</a>
+        <a class="nav-link" routerLink="/attendance" routerLinkActive="active"
+          >Check Attendance</a
+        >
       </li>
       <!-- <li class="nav-item dropdown" *ngIf="loggedIn()">
         <a class="nav-link dropdown-toggle" routerLink="/attendance" id="attendanceDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -25,12 +39,30 @@
       </li> -->
     </ul>
     <ul class="navbar-nav">
-        <a class="nav-link" *ngIf="!loggedIn()" routerLink="/login" routerLinkActive="active">Login</a>
-        <a class="nav-link" *ngIf="!loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>
-        <a class="nav-link" style="cursor:pointer" *ngIf="loggedIn()" (click)="logoutUser()">Logout</a>        
+      <a
+        class="nav-link"
+        *ngIf="!loggedIn()"
+        routerLink="/login"
+        routerLinkActive="active"
+        >Login</a
+      >
+      <a
+        class="nav-link"
+        *ngIf="!loggedIn()"
+        routerLink="/register"
+        routerLinkActive="active"
+        >Register</a
+      >
+      <a
+        class="nav-link"
+        style="cursor: pointer"
+        *ngIf="loggedIn()"
+        (click)="logoutUser()"
+        >Logout</a
+      >
     </ul>
   </div>
 </nav>
 <div class="container">
-  <router-outlet></router-outlet>            
+  <router-outlet></router-outlet>
 </div>

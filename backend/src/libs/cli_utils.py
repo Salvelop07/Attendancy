@@ -15,7 +15,7 @@ from src.settings import (
 
 
 class CliAppUtils:
-    app_title = "Attendance System"
+    app_title = "Attendancy"
 
     def __init__(self, input_video: Union[int, str]):
         self.input_video = input_video
@@ -69,7 +69,7 @@ class CliAppUtils:
             # detect faces using haar cascade detector
             faces = face_classifier.detectMultiScale(img, 1.0485258, 6)
 
-            for(x, y, w, h) in faces:
+            for (x, y, w, h) in faces:
                 increment_num += 1
 
                 # saving the captured face in the <id> folder under static/images/dataset
@@ -126,7 +126,8 @@ class CliAppUtils:
             # loop over the facial embeddings
             for encoding in encodings:
                 # attempt to match each face in the input image to our known encodings
-                matches = face_recognition.compare_faces(data["encodings"], encoding, DLIB_TOLERANCE)
+                matches = face_recognition.compare_faces(
+                    data["encodings"], encoding, DLIB_TOLERANCE)
                 # name to be displayed on video
                 display_name = "Unknown"
 
@@ -159,7 +160,8 @@ class CliAppUtils:
                             # if student's attendance is not marked
                             if not AttendanceModel.is_marked(dt.today(), student):
                                 # then mark student's attendance
-                                student_attendance = AttendanceModel(student=student)
+                                student_attendance = AttendanceModel(
+                                    student=student)
                                 # commit changes to database
                                 student_attendance.save_to_db()
                         # update displayed name to student's name
@@ -181,11 +183,13 @@ class CliAppUtils:
                 # draw the predicted face name on the image
                 cv2.rectangle(img, top_left, bottom_right, (0, 255, 0), 2)
                 y = top - 15 if top - 15 > 15 else top + 15
-                cv2.putText(img, display_name, (left, y), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
+                cv2.putText(img, display_name, (left, y),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
 
             # display the output frames to the screen
             cv2.imshow(f"Recognizing Faces - {self.app_title}", img)
-            k = cv2.waitKey(100) & 0xff  # Press 'ESC' for exiting from the loop
+            # Press 'ESC' for exiting from the loop
+            k = cv2.waitKey(100) & 0xff
             if k == 27:
                 break
 
